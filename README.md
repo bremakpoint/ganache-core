@@ -47,13 +47,14 @@ Both `.provider()` and `.server()` take a single object which allows you to spec
 * `"seed"`: Use arbitrary data to generate the HD wallet mnemonic to be used.
 * `"total_accounts"`: `number` - Number of accounts to generate at startup.
 * `"fork"`: `string` or `object` - When a `string`, same as `--fork` option above. Can also be a Web3 Provider object, optionally used in conjunction with the `fork_block_number` option below.
-* `"fork_block_number"`: `string` or `number` - Block number the provider should fork from, when the `fork` option is specified. If the `fork` option is specified as a string including the `@` sign and a block number, the block number in the `fork` parameter takes precedence.  
+* `"fork_block_number"`: `string` or `number` - Block number the provider should fork from, when the `fork` option is specified. If the `fork` option is specified as a string including the `@` sign and a block number, the block number in the `fork` parameter takes precedence.
 * `"network_id"`: `integer` - Same as `--networkId` option above.
 * `"time"`: `Date` - Date that the first block should start. Use this feature, along with the `evm_increaseTime` method to test time-dependent code.
 * `"locked"`: `boolean` - whether or not accounts are locked by default.
 * `"unlocked_accounts"`: `Array` - array of addresses or address indexes specifying which accounts should be unlocked.
 * `"db_path"`: `String` - Specify a path to a directory to save the chain database. If a database already exists, that chain will be initialized instead of creating a new one.
 * `"db"`: `Object` - Specify an alternative database instance, for instance [MemDOWN](https://github.com/level/memdown).
+* `"ws"`: Enable a websocket server. The default is an Http server
 
 # IMPLEMENTED METHODS
 
@@ -92,6 +93,7 @@ The RPC methods currently implemented are:
 * `eth_sendTransaction`
 * `eth_sendRawTransaction`
 * `eth_sign`
+* `eth_subscribe` (only for websocket connections. "syncing" subscriptions are not yet supported)
 * `eth_syncing`
 * `eth_uninstallFilter`
 * `net_listening`
